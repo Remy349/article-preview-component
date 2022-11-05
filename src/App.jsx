@@ -3,6 +3,10 @@ import React from 'react'
 import drawersImg from './images/drawers.jpg'
 import michelleAvatar from './images/avatar-michelle.jpg'
 
+import facebookIcon from './images/icon-facebook.svg'
+import twitterIcon from './images/icon-twitter.svg'
+import pinterestIcon from './images/icon-pinterest.svg'
+
 const App = () => {
   return (
     <main className='article'>
@@ -49,6 +53,47 @@ const App = () => {
                   />
                 </svg>
               </button>
+              <div className='article__card-content_share_links'>
+                <p className='article__card-content_share_links_text'>Share</p>
+                <ul className='article__card-content_share_links_list'>
+                  <li className='article__card-content_share_links_item'>
+                    <a
+                      href='#'
+                      className='article__card-content_share_links_link'
+                    >
+                      <img
+                        className='article__card-content_share_links_icon'
+                        src={facebookIcon}
+                        alt='Facebook Icon'
+                      />
+                    </a>
+                  </li>
+                  <li className='article__card-content_share_links_item'>
+                    <a
+                      href='#'
+                      className='article__card-content_share_links_link'
+                    >
+                      <img
+                        className='article__card-content_share_links_icon'
+                        src={twitterIcon}
+                        alt='Twitter Icon'
+                      />
+                    </a>
+                  </li>
+                  <li className='article__card-content_share_links_item'>
+                    <a
+                      href='#'
+                      className='article__card-content_share_links_link'
+                    >
+                      <img
+                        className='article__card-content_share_links_icon'
+                        src={pinterestIcon}
+                        alt='Pinterest Icon'
+                      />
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
