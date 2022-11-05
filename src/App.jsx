@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { ShareLink } from './components/ShareLink'
 
 import drawersImg from './images/drawers.jpg'
 import michelleAvatar from './images/avatar-michelle.jpg'
@@ -8,6 +9,12 @@ import twitterIcon from './images/icon-twitter.svg'
 import pinterestIcon from './images/icon-pinterest.svg'
 
 const App = () => {
+  const [showShare, setShowShare] = useState(false)
+
+  const handleShareBtn = () => {
+    !showShare ? setShowShare(true) : setShowShare(false)
+  }
+
   return (
     <main className='article'>
       <article className='article__card'>
@@ -39,7 +46,15 @@ const App = () => {
               </figcaption>
             </figure>
             <div className='article__card-content_share'>
-              <button className='article__card-content_share_btn'>
+              <button
+                onClick={() => handleShareBtn()}
+                className={
+                  showShare
+                    ? 'article__card-content_share_btn active-state-btn'
+                    : 'article__card-content_share_btn'
+                }
+                type='button'
+              >
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   className='article__card-content_share_btn_icon'
@@ -53,45 +68,27 @@ const App = () => {
                   />
                 </svg>
               </button>
-              <div className='article__card-content_share_links'>
+              <div
+                className={
+                  showShare
+                    ? 'article__card-content_share_links active-state'
+                    : 'article__card-content_share_links'
+                }
+              >
                 <p className='article__card-content_share_links_text'>Share</p>
                 <ul className='article__card-content_share_links_list'>
-                  <li className='article__card-content_share_links_item'>
-                    <a
-                      href='#'
-                      className='article__card-content_share_links_link'
-                    >
-                      <img
-                        className='article__card-content_share_links_icon'
-                        src={facebookIcon}
-                        alt='Facebook Icon'
-                      />
-                    </a>
-                  </li>
-                  <li className='article__card-content_share_links_item'>
-                    <a
-                      href='#'
-                      className='article__card-content_share_links_link'
-                    >
-                      <img
-                        className='article__card-content_share_links_icon'
-                        src={twitterIcon}
-                        alt='Twitter Icon'
-                      />
-                    </a>
-                  </li>
-                  <li className='article__card-content_share_links_item'>
-                    <a
-                      href='#'
-                      className='article__card-content_share_links_link'
-                    >
-                      <img
-                        className='article__card-content_share_links_icon'
-                        src={pinterestIcon}
-                        alt='Pinterest Icon'
-                      />
-                    </a>
-                  </li>
+                  <ShareLink
+                    socialIcon={facebookIcon}
+                    socialImgAlt='Facebook Icon'
+                  />
+                  <ShareLink
+                    socialIcon={twitterIcon}
+                    socialImgAlt='Twitter Icon'
+                  />
+                  <ShareLink
+                    socialIcon={pinterestIcon}
+                    socialImgAlt='Pinterest Icon'
+                  />
                 </ul>
               </div>
             </div>

@@ -21,6 +21,18 @@ body {
   background-color: $Light-Grayish-Blue;
 }
 
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.active-state {
+  display: flex !important;
+}
+
 .article {
   max-width: 25rem;
   box-shadow: 0 4px 20px rgba(0,0,0,.2);
@@ -31,6 +43,7 @@ body {
   &__card {
     display: flex;
     flex-direction: column;
+    position: relative;
 
     &-img {
       width: 100%;
@@ -98,6 +111,49 @@ body {
           align-items: center;
           outline: none;
           border: none;
+          position: relative;
+          z-index: 100;
+
+          &:hover {
+            background-color: $Desaturated-Dark-Blue;
+          }
+
+          &:hover &_path {
+            fill: #fff;
+          }
+
+          &.active-state-btn {
+            background-color: $Desaturated-Dark-Blue;
+          }
+
+          &.active-state-btn &_path {
+            fill: #fff;
+          }
+        }
+
+        &_links {
+          background-color: $Very-Dark-Grayish-Blue;
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          width: 100%;
+          display: none;
+          align-items: center;
+          height: 4.5rem;
+          padding: 1rem 2rem;
+
+          &_text {
+            text-transform: uppercase;
+            margin-right: 1rem;
+            letter-spacing: .3rem;
+            color: $Grayish-Blue;
+          }
+
+          &_list {
+            display: flex;
+            align-items: center;
+            column-gap: 1rem;
+          }
         }
       }
     }
