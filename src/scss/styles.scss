@@ -159,3 +159,52 @@ a {
     }
   }
 }
+
+@media screen and (min-width: 1000px) {
+  .article {
+    max-width: 46rem;
+    overflow: visible;
+
+    &__card {
+      flex-direction: row;
+
+      &-img {
+        height: auto;
+        width: 18.5rem;
+        object-position: 0;
+        border-bottom-left-radius: .5rem;
+        border-top-left-radius: .5rem;
+      }
+
+      &-content {
+        padding: 2rem 2.5rem;
+
+        &_title {
+          font-size: 1.2rem;
+        }
+
+        &_share {
+          &_links {
+            width: auto;
+            height: auto;
+            border-radius: .5rem;
+            right: -5rem;
+            bottom: 6rem;
+            padding: 1rem 2.5rem;
+
+            &::after {
+              content: '';
+              position: absolute;
+              bottom: -.8rem;
+              right: 7.8rem;
+              border-top: .8rem solid $Very-Dark-Grayish-Blue;
+              border-right: .8rem solid transparent;
+              border-left: .8rem solid transparent;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
